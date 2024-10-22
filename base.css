@@ -1,53 +1,36 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #fff;
+    color: #333;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #000; /* Fallback color for mobile */
+    background: linear-gradient(124deg, #ffac6c, #ffcf90, #FA9C95, #ec8fd8, #d091e5, #ad90e8, #7f9ff1, #7ec9ef, #8de6f2, #B1F5FF);
+    background-size: 400% 400%;
+    animation: rainbow 18s ease infinite;
 }
 
 .video-background {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: auto;
+    height: 80vh;
+    max-width: 100%;
+    max-height: 80vh;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
     z-index: -1;
 }
 
-@media (min-width: 768px) {
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('images/defaultbg_desktop.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        filter: blur(24px) brightness(70%); /* Added brightness filter for darkening */
-        z-index: -2;
-    }
-
-    .video-background {
-        width: auto;
-        height: 80vh;
-        max-width: 100%;
-        max-height: 80vh;
-        margin: auto;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 20px;
-    }
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
 
 .content-wrapper {
@@ -80,18 +63,6 @@ a:hover {
     color: #2980b9;
 }
 
-@media (min-width: 768px) {
-    .content-wrapper {
-        justify-content: flex-start;
-        padding-top: 5vh;
-    }
-
-    .container {
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-}
-
 .download-button-container {
     position: fixed;
     top: 50%;
@@ -117,12 +88,28 @@ a:hover {
     }
 
     .download-button {
-        max-width: 250px;
+        max-width: 80vw;
+        width: 100%;
     }
+
+    .video-background {
+        height: 80vh;
+        max-height: 80vh;
+    }   
 }
 
 @media (min-width: 768px) {
+    .content-wrapper {
+        justify-content: flex-start;
+        padding-top: 5vh;
+    }
+
+    .container {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
     .download-button-container {
-        right: calc(10% + 100px); /* 100px from the right edge of the video */
+        right: calc(10% + 100px);
     }
 }
